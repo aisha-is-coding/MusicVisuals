@@ -2,10 +2,11 @@ package ie.tudublin;
 
 import processing.core.PApplet;
 import ddf.minim.*;
-import ddf.minim.analysis.*;
-import processing.opengl.*;
-import ddf.minim.analysis.*;
+//import ddf.minim.analysis.*;
+//import processing.opengl.*;
+//import ddf.minim.analysis.*;
 
+//This code does not really follow oop principles, I need to modify it to make sure it does.
 
 public class RotatingSpheres extends PApplet {
     Minim minim;
