@@ -1,6 +1,6 @@
 
 package ie.tudublin;
-import ie.tudublin.stars;
+//import ie.tudublin.stars;
 import ddf.minim.AudioBuffer;
 import ddf.minim.AudioInput;
 import ddf.minim.AudioPlayer;
