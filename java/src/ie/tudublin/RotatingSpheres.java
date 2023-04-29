@@ -7,7 +7,7 @@ import processing.opengl.*;
 import ddf.minim.analysis.*;
 
 
-public class Circles extends PApplet {
+public class RotatingSpheres extends PApplet {
     Minim minim;
     AudioPlayer song;
     float angle = 0;
@@ -36,10 +36,10 @@ public class Circles extends PApplet {
         rotateY(angle);
         rotateX(angle);
 
-        //create disco ball
+        //create rotating spheres
         noStroke();
 
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 1300; i++) {
             float x = random(-width/2, width/2);
             float y = random(-height/2, height/2);
             float z = random(-100, 100);
@@ -54,6 +54,12 @@ public class Circles extends PApplet {
         }
         angle += 0.01;
     }
+
+    public void stop() {
+        song.close();
+        minim.stop();
+        super.stop();
+      }
 
 
 
