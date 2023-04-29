@@ -14,11 +14,13 @@ public class Circles extends PApplet {
 
     public void settings() 
     {
-        size(1024, 500, P3D);
+        size(500, 500, P3D);
+        
     }
 
     public void setup() 
     {
+        colorMode(HSB);
         minim = new Minim(this);
         song = minim.loadFile("MusicVisuals/java/data/Victoria_Mon_t_ft_Khalid_-_Experience.mp3", 1024);
         song.play();
@@ -33,6 +35,24 @@ public class Circles extends PApplet {
         translate(width/2, height/2, 0);
         rotateY(angle);
         rotateX(angle);
+
+        //create disco ball
+        noStroke();
+
+        for (int i = 0; i < 1000; i++) {
+            float x = random(-width/2, width/2);
+            float y = random(-height/2, height/2);
+            float z = random(-100, 100);
+            
+            float d = dist(0, 0, 0, x, y, z);
+            
+            fill(random(255), 255, 255);
+            pushMatrix();
+            translate(x, y, z);
+            sphere((float) (d * level * 0.1));
+            popMatrix();
+        }
+        angle += 0.01;
     }
 
 
