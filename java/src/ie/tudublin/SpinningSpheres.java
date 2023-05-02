@@ -36,4 +36,12 @@ public class SpinningSpheres extends AudioVisual {
       }
       angle += 0.01;
     }
+
+    public float getAngle() {
+      return angle;
+    }
+
+    public void setAngle(float angle) {
+      this.angle = angle;
+    }
   }

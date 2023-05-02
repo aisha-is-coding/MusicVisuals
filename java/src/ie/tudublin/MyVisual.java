@@ -23,5 +23,10 @@ public class MyVisual extends PApplet {
     super.stop();
   }
 
+  //   public static void main(String[] args) {
+  //   PApplet.main(new String[] { MyVisual.class.getName() });
+  // }
+
+   
 }
 
