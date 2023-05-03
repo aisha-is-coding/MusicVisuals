@@ -18,6 +18,17 @@ public class AudioVisual {
         song = minim.loadFile("Victoria_Mon_t_ft_Khalid_-_Experience.mp3", 1024);
         song.play();
     }
+
+    public void render() 
+    {
+        // Override this method in derived classes
+    }
+
+    public void close() 
+    {
+        song.close();
+        minim.stop();
+    }
 }
 
 
