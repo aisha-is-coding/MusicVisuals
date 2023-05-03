@@ -1,33 +1,22 @@
 package ie.tudublin;
 
+public class Main
+{	
 
-//import example.CubeVisual;
-//import example.MyVisual;
-//import example.RotatingAudioBands;
-
-public class Main {
-	
-	// public static void main(String[] args) {
-	// 	processing.core.PApplet.main(new String[] { MyVisual.class.getName() });
-	// 	}
-	
-	
-	
-	
-	
-	public void startUI()
+	public static void startUI()
 	{
-	  	String[] a = {"MAIN"};
-	  	processing.core.PApplet.runSketch( a, new Basic());
-	 }
-	  public static void main(String[] args)
-	  {
-		Main main = new Main();
-		main.startUI();
-	} 
-	 
+		String[] a = {"MAIN"};
+        processing.core.PApplet.runSketch( a, new MyVisual());		
+	}
+	public void discoBallUI()
+	{
+		String[] a = {"MAIN"};
+        processing.core.PApplet.runSketch( a, new stars());		
+	}
 
-		
-	
-	
+	public static void main(String[] args)
+	{
+		Main main = new Main();
+		main.startUI();			
+	}
 }

@@ -1,5 +1,9 @@
 
 package ie.tudublin;
+
+
+
+
 //import ie.tudublin.stars;
 import ddf.minim.AudioBuffer;
 import ddf.minim.AudioInput;
@@ -15,7 +19,7 @@ public class Experiance extends PApplet{
     AudioInput ai;
     AudioBuffer ab;
 
-    stars star;
+   
 
     FFT fft;
 
@@ -118,17 +122,11 @@ public class Experiance extends PApplet{
             break;
 
         case 2:// when you press key 2 (cece)
-       
-       
-    
+            
 
-            break;
 
-        case 3://when you press key 3 (molly)
-
-            break;
-
-        case 4://when you press key 4 (aisha)
+                
+        
 
             break;
         }
@@ -138,3 +136,4 @@ public class Experiance extends PApplet{
 
     
 }
+
