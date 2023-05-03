@@ -6,7 +6,18 @@ import ddf.minim.*;
 //import processing.opengl.*;
 
 public class AudioVisual {
-    
+    protected PApplet ui;
+    protected Minim minim;
+    protected AudioPlayer song;
+
+    //constructor
+    public AudioVisual(PApplet ui) 
+    {
+        this.ui = ui;
+        minim = new Minim(ui);
+        song = minim.loadFile("Victoria_Mon_t_ft_Khalid_-_Experience.mp3", 1024);
+        song.play();
+    }
 }
 
 
