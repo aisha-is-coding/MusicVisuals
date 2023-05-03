@@ -22,7 +22,7 @@ public class  Basic extends PApplet {
     {
         colorMode(HSB);
         minim = new Minim(this);
-        song = minim.loadFile("/java/data/heroplanet.mp3", 1024);
+        song = minim.loadFile("heroplanet.mp3", 1024);
         song.play();
     }
 

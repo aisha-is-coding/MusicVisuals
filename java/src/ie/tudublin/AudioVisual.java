@@ -6,7 +6,7 @@ import ddf.minim.*;
 //import processing.opengl.*;
 
 public class AudioVisual {
-  
+    
 }
 
 
