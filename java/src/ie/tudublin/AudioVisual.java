@@ -15,7 +15,7 @@ public class AudioVisual {
     {
         this.ui = ui;
         minim = new Minim(ui);
-        song = minim.loadFile("MusicVisuals/java/data/Victoria_Mon_t_ft_Khalid_-_Experience.mp3", 1024);
+        song = minim.loadFile("Victoria_Mon_t_ft_Khalid_-_Experience.mp3", 1024);
         song.play();
     }
 
