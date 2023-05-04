@@ -29,6 +29,8 @@ Student Number: C21351293
 - Check out the WaveForm and AudioBandsVisual for examples of how to call the Processing functions from other classes that are not subclasses of PApplet
 
 # Description of the assignment
+We created an audio visual project we have created is an innovative & interactive multimedia  project created using java and the processing library
+
 
 # Instructions
 
