@@ -1,3 +1,4 @@
+
 package ie.tudublin;
 
 
@@ -120,16 +121,11 @@ public class Experiance extends PApplet{
             break;
 
         case 2:// when you press key 2 (cece)
-      
-    
+            
 
-            break;
 
-        case 3://when you press key 3 (molly)
-
-            break;
-
-        case 4://when you press key 4 (aisha)
+                
+        
 
             break;
         }
