@@ -21,7 +21,7 @@ public class Half {
 float rotationX = 0;
 float rotationY = 0;
 float rotationZ = 0;
-float sphereRadius = 450;
+float sphereRadius = 350;
 int lineCount = 30;
 int squareSize = 15;
 int colorChangeRate = 20;

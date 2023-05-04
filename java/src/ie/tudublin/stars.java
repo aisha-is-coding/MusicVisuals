@@ -1,9 +1,7 @@
 package ie.tudublin;
 
 import java.util.ArrayList;
-import ddf.minim.*;
 import ddf.minim.analysis.*;
-import processing.core.PApplet;
 import processing.core.PConstants;
 
 public class stars  {
@@ -70,18 +68,18 @@ public class stars  {
         
 
         // Set the size of the daisy
-        float daisySize = 200;
+        float daisySize = 310;
 
         // Calculate sum and average of the samples
         for (int i = 0; i < mv.ab.size(); i++) {
             sum += MyVisual.abs(mv.ab.get(i));
         }
         average = sum / (float) mv.ab.size();
-        smoothedAmplitude = MyVisual.lerp(smoothedAmplitude, average, 0.2f);
+        smoothedAmplitude = MyVisual.lerp(smoothedAmplitude, average, 0.3f);
 
         // Map the amplitude value to a range of values that will control the size of
         // the center circle
-        float size = MyVisual.map(smoothedAmplitude, 0, 1, 180, 800);
+        float size = MyVisual.map(smoothedAmplitude, 0, 1, 200, 800);
 
         // Set the color of the daisy
         mv.fill(255, 255, 0); // yellow
@@ -98,7 +96,7 @@ public class stars  {
             mv.pushMatrix();
             mv.translate(petalX, petalY);
             mv.rotate(angle);
-            mv.ellipse(0, 0, 110, 100);
+            mv.ellipse(0, 0, 180, 170);
             mv.popMatrix();
         }
 
@@ -106,31 +104,31 @@ public class stars  {
         mv.fill(255, 255, 0); // yellow
 
         // Draw the center of the daisy with the mapped size value
-        mv.ellipse(centerX, centerY, 130, 130);
+        mv.ellipse(centerX, centerY, 170, 170);
 
         // Set the color and stroke for the smile
         // Draw the smile
         mv.strokeWeight(5);
         mv.stroke(0);
         mv.noFill();
-        mv.arc(centerX, centerY + 25, 60, 60, 0, PConstants.PI);
+        mv.arc(centerX, centerY + 25, 70, 70, 0, PConstants.PI);
 
         // Draw the eyes
         mv.fill(0);
         mv.noStroke();
-        mv.ellipse(centerX - 25, centerY - 10, 20, 20);
-        mv.ellipse(centerX + 25, centerY - 10, 20, 20);
+        mv.ellipse(centerX - 27, centerY - 10, 20, 20);
+        mv.ellipse(centerX + 27, centerY - 10, 20, 20);
 
         // blush
         mv.fill(255, 192, 203);
         mv.noStroke();
-        mv.ellipse(centerX - 35, centerY + 9, 15, 10);
-        mv.ellipse(centerX + 35, centerY + 9, 15, 10);
+        mv.ellipse(centerX - 45, centerY + 9, 15, 10);
+        mv.ellipse(centerX + 45, centerY + 9, 15, 10);
     }
 
     void drawstem() {
         mv.pushMatrix(); // save the current coordinate system
-        float halfH = (mv.height / 2) + 65;
+        float halfH = (mv.height / 2) + 89;
         float halfW = (mv.width / 2);
         float average = 0;
         float sum = 0;
@@ -160,23 +158,11 @@ public class stars  {
 
         float[] arr;
 
-
-        
-        
-      
-
-        try {
-            mv.calculateFFT();
-        } catch (VisualException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
         arr = mv.getSmoothedBands();
 
         // maintain a variable number of particles between 10 and 20
-        int minParticles = 10;
-        int maxParticles = 20;
+        int minParticles = 5;
+        int maxParticles = 10;
         int numParticles = particles.size();
         int targetParticles = (int) MyVisual.map(arr[8], 0, 1, minParticles, maxParticles);
         if (numParticles < targetParticles) {
@@ -198,12 +184,12 @@ public class stars  {
         drawstem();	
 
       // Update the left and right hearts based on the audio amplitude
-  leftHeart.update(smoothedAmplitude);
-  rightHeart.update(smoothedAmplitude);
+        leftHeart.update(smoothedAmplitude);
+        rightHeart.update(smoothedAmplitude);
 
-  // Draw the left and right hearts
-  leftHeart.draw();
-  rightHeart.draw();
+        // Draw the left and right hearts
+        leftHeart.draw();
+        rightHeart.draw();
     }
 
     class Particle {
@@ -216,9 +202,9 @@ public class stars  {
             x = mv.random(mv.width);
             y = mv.random(mv.height);
             vx = mv.random(-1, 1);
-            vy = 4; // set the falling speed to a constant value of 2
-            size = mv.random(10, 20);
-            color = mv.color(mv.random(255), mv.random(150), mv.random(255));
+            vy = 6; // set the falling speed to a constant value of 2
+            size = mv.random(5, 10);
+            color = mv.color(mv.random(255), mv.random(255), mv.random(255));
         }
 
         void update() {
@@ -248,10 +234,10 @@ public class stars  {
             //int index = (int) MyVisual.map(x, 100, mv.width, 100, arr.length > 50 ? arr[50] : 0);
             //float amplitude = arr[index % 5];
 
-            size = amplitude * 50;
+            size = amplitude * 40;
             // limit the maximum size
-            if (size > 40) {
-                size = 40;
+            if (size > 50) {
+                size = 50;
             }
             mv.fill(color);
             mv.noStroke();
@@ -284,7 +270,7 @@ public class stars  {
         
         void update(float amplitude) {
           // Map the amplitude value to a range of values that will control the size of the heart
-          size = MyVisual.map(amplitude, 0, 1, 80, 150);
+          size = MyVisual.map(amplitude, 0, 1, 50, 140);
         }
-      }
+    }
 }

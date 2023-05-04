@@ -1,14 +1,10 @@
 package ie.tudublin;
 
 import java.util.ArrayList;
-import processing.core.PApplet;
-import ddf.minim.*;
 import ddf.minim.analysis.FFT;
-import processing.core.PApplet;
 import processing.core.PConstants;
 
-public class music_note
-{
+public class music_note {
     // AudioPlayer ap;
     // AudioInput ai;
     // AudioBuffer ab;
@@ -21,15 +17,13 @@ public class music_note
     Star[] stars;
     float[] bands1;
 
-    public music_note(MyVisual mv)
-    {
+    public music_note(MyVisual mv) {
         this.mv = mv;
         // colorMode(HSB, 360, 100, 100);
 
         mv.pushMatrix();
         stars = new Star[50];
-        for (int i = 0; i < stars.length; i++) 
-        {
+        for (int i = 0; i < stars.length; i++) {
             float x = mv.random(mv.width - 100) + 50;
             float y = mv.random(mv.height - 100) + 50;
             float size = mv.random(20, 100);
@@ -40,62 +34,20 @@ public class music_note
 
     }
 
-    public void render()
-    {
+    public void render() {
         draw();
         // System.out.print("here");
     }
-    
 
-    // public void settings()
-    // {
-    //     size(1024,1024, P3D);
-    //     smooth();
-    // }
-
-    // public void setup()
-    // {
-    //     colorMode(HSB);
-
-
-    //     startMinim();
-    //     loadAudio("MusicVisuals/java/data/Victoria_Mon_t_ft_Khalid_-_Experience.mp3");
-    //     getAudioPlayer().play();
-    // }
-
- 
-    public void draw()
-    {
+    public void draw() {
         mv.background(0);
-        float amplitude = 0;
         float[] bands;
-        //frameRate(50);
-
-        // calculateAverageAmplitude();
-        
-        // amplitude = getSmoothedAmplitude();
-
-        // try
-        // {
-        //     mv.calculateFFT();
-        // }
-        // catch(VisualException e)
-        // {
-        //     e.printStackTrace();
-        // }
-        // mv.calculateFrequencyBands();
         bands = mv.getSmoothedBands();
 
-        // for (int i = 0; i < bands.length; i++)
-        // {
-        //     System.out.print(bands[i]);
-        // }
-    
         mv.pushMatrix();
 
         // loop through all stars in the stars array
-        for (int i = 0; i < stars.length; i++) 
-        {
+        for (int i = 0; i < stars.length; i++) {
             Star star = stars[i];
             star.update();
             float size = MyVisual.map(bands[2], 0, 255, 20, 100);
@@ -108,18 +60,7 @@ public class music_note
         drawNotes(bands);
     }
 
-    public void drawNotes(float[] bands)
-    {
-        // try
-        // {
-        //     mv.calculateFFT();
-        // }
-        // catch(VisualException e)
-        // {
-        //     e.printStackTrace();
-        // }
-        // mv.calculateFrequencyBands();
-        // bands1 = mv.getSmoothedBands();
+    public void drawNotes(float[] bands) {
 
         mv.pushMatrix();
         mv.stroke(255);
@@ -128,13 +69,13 @@ public class music_note
         // for drawing the notes
         int staffHeight = 200;
         int staffWidth = mv.width - 300;
-        int staffY = mv.height/2 + 50;
-        int staffX = mv.width/2 - staffWidth/2;
+        int staffY = mv.height / 2 + 50;
+        int staffX = mv.width / 2 - staffWidth / 2;
         int staffSpacing = mv.height / 10;
 
         int noteSize = mv.width / 25;
-        int noteX = staffX + staffWidth/10;
-        int noteY = staffY - staffHeight/5;
+        int noteX = staffX + staffWidth / 10;
+        int noteY = staffY - staffHeight / 5;
         int noteDistance = mv.width / 10;
 
         // for colour of notes
@@ -145,64 +86,66 @@ public class music_note
         // for drawing the staff on the screen
         mv.strokeWeight(1);
         for (int i = 0; i < 5; i++) {
-            int y = staffY - (2 * staffHeight/5) + (i * staffHeight/4);
+            int y = staffY - (2 * staffHeight / 5) + (i * staffHeight / 4);
             mv.line(staffX, y, staffX + staffWidth, y);
         }
 
-        //colorMode(HSB, 360, 100, 100);
-    
-        // set colour of notes to change 
+        // set colour of notes to change
         if (frameCount % colourChangeInterval == 0) {
-            colour = (int) MyVisual.map(bands[2], 0, 255, 0, 255); 
+            colour = (int) MyVisual.map(bands[2], 0, 255, 0, 255);
         }
         frameCount++;
-        //System.out.print(bands[2]);
-
 
         mv.smooth();
         mv.strokeWeight(4);
-        int noteX2 = noteX + staffSpacing*2;
+        int noteX2 = noteX + staffSpacing * 2;
         int noteY2 = noteY + staffSpacing;
 
         // Calculate the vertical position of the notes based on the amplitude
         mv.calculateAverageAmplitude();
         float amplitude = mv.getSmoothedAmplitude();
-        float yOffset = MyVisual.map(amplitude, 0, 1, -staffHeight/3, staffHeight/2); 
+        float yOffset = MyVisual.map(amplitude, 0, 1, -staffHeight / 3, staffHeight / 2);
 
         mv.fill(colour, 255, 255);
 
         // draw first note
-        mv.ellipse(noteX + noteDistance/3 - 10, noteY2 + yOffset + noteSize, noteSize, noteSize);
-        mv.line(noteX + noteDistance/3 + 27, noteY2 + yOffset + noteSize, noteX + noteDistance/3 + 27, staffY - staffHeight/7 + yOffset);
+        mv.ellipse(noteX + noteDistance / 3, noteY2 + yOffset + noteSize, noteSize, noteSize);
+        mv.line(noteX + noteDistance / 3 + 26, noteY2 + yOffset + noteSize, noteX + noteDistance / 3 + 26,
+                staffY - staffHeight / 7 + yOffset);
 
-        mv.ellipse(noteX2, noteY + (noteDistance/2 + 30) + yOffset, noteSize, noteSize);
-        mv.line(noteX2 + 40, noteY + (noteDistance/2 + 30) + yOffset, noteX2 + 40, staffY - staffHeight/5 + yOffset);
+        mv.ellipse(noteX2, noteY + (noteDistance / 2 + 30) + yOffset, noteSize, noteSize);
+        mv.line(noteX2 + 27, noteY + (noteDistance / 2 + 30) + yOffset, noteX2 + 27,
+                staffY - staffHeight / 5 + yOffset);
 
         // connect note
-        mv.line(noteX + noteDistance/3 + 27, staffY - staffHeight/7 + yOffset, noteX2 + 40, staffY - staffHeight/5 + yOffset);
+        mv.line(noteX + noteDistance / 3 + 26, staffY - staffHeight / 7 + yOffset, noteX2 + 27,
+                staffY - staffHeight / 5 + yOffset);
 
         // another note
         mv.fill(colour, 255, 255);
-        
-        mv.ellipse((noteX2 + 30) * 2, noteY + (noteDistance + noteSize/35) + yOffset, noteSize, noteSize);
-        mv.line((noteX2 + 49) * 2, noteY + (noteDistance + noteSize/35) +  yOffset, (noteX2 + 49) * 2, noteY - staffHeight/15 + yOffset);
+
+        mv.ellipse((noteX2 + 37) * 2, noteY + (noteDistance + noteSize / 35) + yOffset, noteSize, noteSize);
+        mv.line((noteX2 + 50) * 2, noteY + (noteDistance + noteSize / 35) + yOffset, (noteX2 + 50) * 2,
+                noteY - staffHeight / 15 + yOffset);
 
         // first circle
-        mv.ellipse((noteX + noteDistance - 30) * 2, noteY2 - (noteDistance - noteSize*2) + yOffset, noteSize, noteSize);
-        mv.line((noteX + noteDistance - 12) * 2, noteY2 - (noteDistance - noteY/3 + 40) + yOffset, (noteX + noteDistance - 12) * 2, staffY - staffHeight/2 + yOffset);
+        mv.ellipse((noteX + noteDistance - 30) * 2, noteY2 - (noteDistance - noteSize * 2) + yOffset, noteSize,
+                noteSize);
+        mv.line((noteX + noteDistance - 18) * 2, noteY2 - (noteDistance - noteY / 3 + 30) + yOffset,
+                (noteX + noteDistance - 18) * 2, staffY - staffHeight / 2 + yOffset);
 
         // connect note
-        mv.line((noteX + noteDistance - 12) * 2, staffY - staffHeight/2 + yOffset, (noteX2 + 50) * 2, noteY - staffHeight/15 + yOffset);
+        mv.line((noteX + noteDistance - 18) * 2, staffY - staffHeight / 2 + yOffset, (noteX2 + 50) * 2,
+                noteY - staffHeight / 15 + yOffset);
 
-        mv.ellipse((noteX + noteDistance) * 3, noteY2 - (noteDistance - noteSize*3) + yOffset, noteSize, noteSize);
-        mv.line((noteX + noteDistance + 12) * 3, noteY2 - (noteDistance - noteY/2 + 40) + yOffset, (noteX + noteDistance + 12) * 3, staffY - staffHeight/3 + yOffset);
+        mv.ellipse((noteX + noteDistance) * 3, noteY2 - (noteDistance - noteSize * 3) + yOffset, noteSize, noteSize);
+        mv.line((noteX + noteDistance + 9) * 3, noteY2 - (noteDistance - noteY / 2 + 40) + yOffset,
+                (noteX + noteDistance + 9) * 3, staffY - staffHeight / 3 + yOffset);
 
         mv.popMatrix();
     }
 
-    
-    class Star
-    {
+    class Star {
         float x;
         float y;
         float size;
@@ -220,8 +163,7 @@ public class music_note
         int frameCount = 0;
         int colourChangeInterval = 20; // Change colour every 20 frames
 
-        Star(MyVisual mv, float x, float y, float size, float speed, float height, float width, Star[] stars) 
-        {
+        Star(MyVisual mv, float x, float y, float size, float speed, float height, float width, Star[] stars) {
             this.x = x;
             this.y = y;
             this.size = size;
@@ -238,35 +180,29 @@ public class music_note
             colours.add(mv.color(255, 209, 220));
         }
 
-        
-        void update() 
-        {
+        void update() {
             y += speed;
             rotate_Star += 0.01;
-            
+
             // star still on screen, update it
-            if (y > height) 
-            {
+            if (y > height) {
                 y = 0;
                 x = mv.random(width);
                 size = mv.random(20, 100);
                 speed = mv.random(1, 3);
-            } 
-            else if (y < 0) // reset star to fall from the top of the screen again
+            } else if (y < 0) // reset star to fall from the top of the screen again
             {
                 y = height;
             }
 
         }
 
-        void display(float[] bands) 
-        {
+        void display(float[] bands) {
             mv.pushMatrix();
             mv.translate(x, y);
             mv.rotate(rotate_Star);
-            mv.scale(size/300);
+            mv.scale(size / 300);
             mv.noStroke();
-
 
             // Only change colour every colourChangeInterval frames
             if (frameCount % colourChangeInterval == 0) {
@@ -279,11 +215,11 @@ public class music_note
 
             mv.beginShape();
 
-            // change number of points for the star based on the fifth audio frequency band value
-            num_point = (int) MyVisual.map(bands[4], 0, 255, 5, 10); 
-            //System.out.print(bands[2]);
-            for (int i = 0; i < num_point; i++) 
-            {
+            // change number of points for the star based on the fifth audio frequency band
+            // value
+            num_point = (int) MyVisual.map(bands[4], 0, 255, 5, 10);
+            // System.out.print(bands[2]);
+            for (int i = 0; i < num_point; i++) {
                 // calculate angle of the current point
                 float angle = PConstants.TWO_PI * i / num_point;
 
@@ -305,8 +241,7 @@ public class music_note
 
             mv.endShape();
             mv.popMatrix();
-        } 
+        }
 
     }
 }
-

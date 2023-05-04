@@ -28,7 +28,7 @@ public abstract class Visual extends PApplet
 	public void startMinim() 
 	{
 		minim = new Minim(this);
-		loadAudio("MusicVisuals/java/data/Victoria_Mon_t_ft_Khalid_-_Experience.mp3");
+		loadAudio("Victoria_Mon_t_ft_Khalid_-_Experience.mp3");
 		//ap = minim.loadFile("MusicVisuals/java/data/Victoria_Mon_t_ft_Khalid_-_Experience.mp3");
 		ap.play();
 		ab = ap.mix;
@@ -67,7 +67,7 @@ public abstract class Visual extends PApplet
 			total += abs(ab.get(i));
 		}
 		amplitude = total / ab.size();
-		smothedAmplitude = PApplet.lerp(smothedAmplitude, amplitude, 0.1f);
+		smothedAmplitude = PApplet.lerp(smothedAmplitude, amplitude, 0.25f);
 	}
 
 

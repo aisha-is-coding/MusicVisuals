@@ -1,11 +1,11 @@
 package ie.tudublin;
 
 import processing.core.PApplet;
-import java.util.ArrayList;
-import ddf.minim.*;
+//import java.util.ArrayList;
+//import ddf.minim.*;
 import ddf.minim.analysis.*;
-import processing.core.PApplet;
-import processing.core.PConstants;
+
+//import processing.core.PConstants;
 
 public class SpinningSpheres 
 {
@@ -25,7 +25,7 @@ public class SpinningSpheres
     
 
     float level = mv.getSmoothedAmplitude(); //song.mix.level();
-    //float sizeChange = MyVisual.map(amplitude, 0, 1, 1, 2);
+    
 
     //float level = song.mix.level();
 
