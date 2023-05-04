@@ -1,8 +1,25 @@
 # Music Visualiser Project
 
-Name: Cecilia Luan
+Student 1: 
+Name: Hadassah Joseph
+Student Number: C21382216
 
-Student Number: 
+
+Student 2 : 
+Name: Cecilia Luan
+Student Number: C21379843 
+
+Student 3: 
+Name: Molly McGuire
+Student Number: C21486544
+
+Student 4: 
+Name: Grace Ojo
+Student Number: C21486544
+
+Student 5: 
+Name: Aisha Adebimpe
+Student Number: C21351293
 
 ## Instructions
 - Fork this repository and use it a starter project for your assignment
@@ -12,6 +29,8 @@ Student Number:
 - Check out the WaveForm and AudioBandsVisual for examples of how to call the Processing functions from other classes that are not subclasses of PApplet
 
 # Description of the assignment
+We created an audio visual project we have created is an innovative & interactive multimedia  project created using java and the processing library
+
 
 # Instructions
 

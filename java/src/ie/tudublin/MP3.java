@@ -8,7 +8,7 @@ package ie.tudublin;
 import processing.core.PApplet;
 import processing.core.PConstants;
 
-public class Idea 
+public class MP3 
 { 
     
     private MyVisual mv;
@@ -18,7 +18,7 @@ public class Idea
     float speed = 50;
 
 
-    public Idea(MyVisual mv)
+    public MP3(MyVisual mv)
     {
         this.mv = mv;
         //this.idea = new Idea(mv);
@@ -102,7 +102,7 @@ public class Idea
         mv.textAlign(PConstants.CENTER, PConstants.CENTER);
         mv.textSize(94);
         mv.fill(255);
-        mv.text("EXPERIENCE", 0, 0);
+        mv.text("THE END", 0, 0);
 
         // Move the origin to the center of the screen
         mv.translate(-(mv.width) / 2, (mv.height) / 2);

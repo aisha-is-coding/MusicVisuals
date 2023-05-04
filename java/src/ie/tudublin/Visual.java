@@ -3,6 +3,7 @@ package ie.tudublin;
 import processing.core.PApplet;
 import ddf.minim.*;
 import ddf.minim.analysis.FFT;
+import ddf.minim.AudioBuffer;
 
 public abstract class Visual extends PApplet
 {
@@ -14,9 +15,10 @@ public abstract class Visual extends PApplet
 
 	private Minim minim;
 	private AudioInput ai;
-	private AudioPlayer ap;
-	private AudioBuffer ab;
+	protected AudioPlayer ap;
+	protected AudioBuffer ab;
 	private FFT fft;
+	private int bufferSize;
 
 	private float amplitude  = 0;
 	private float smothedAmplitude = 0;
@@ -26,17 +28,22 @@ public abstract class Visual extends PApplet
 	public void startMinim() 
 	{
 		minim = new Minim(this);
+		loadAudio("MusicVisuals/java/data/Victoria_Mon_t_ft_Khalid_-_Experience.mp3");
+		//ap = minim.loadFile("MusicVisuals/java/data/Victoria_Mon_t_ft_Khalid_-_Experience.mp3");
+		ap.play();
+		ab = ap.mix;
 
-		fft = new FFT(frameSize, sampleRate);
-
-		bands = new float[(int) log2(frameSize)];
+		fft = new FFT(timeSize(), sampleRate);
+		bands = new float[(int) log2(timeSize())];
   		smoothedBands = new float[bands.length];
 
 	}
 
+
 	float log2(float f) {
 		return log(f) / log(2.0f);
 	}
+
 
 	protected void calculateFFT() throws VisualException
 	{
@@ -92,11 +99,16 @@ public abstract class Visual extends PApplet
 	}
 
 	public int getFrameSize() {
+		return bufferSize;
+	}
+
+	protected int timeSize()
+	{
 		return frameSize;
 	}
 
 	public void setFrameSize(int frameSize) {
-		this.frameSize = frameSize;
+		this.bufferSize = frameSize;
 	}
 
 	public int getSampleRate() {
@@ -143,4 +155,6 @@ public abstract class Visual extends PApplet
 	public FFT getFFT() {
 		return fft;
 	}
+
+	
 }
