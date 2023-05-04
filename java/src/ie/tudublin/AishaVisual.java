@@ -2,7 +2,7 @@ package ie.tudublin;
 
 import processing.core.PApplet;
 
-public class MyVisual extends PApplet 
+public class AishaVisual extends PApplet 
 {
     private SpinningSpheres visual;
 
@@ -29,7 +29,7 @@ public class MyVisual extends PApplet
 
     public static void main(String[] args) 
     {
-        PApplet.main(new String[] { MyVisual.class.getName() });
+        PApplet.main(new String[] { AishaVisual.class.getName() });
     }
     
 
