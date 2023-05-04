@@ -24,10 +24,10 @@ public class SpinningSpheres
     mv.background(0);
     
 
-    float level = mv.getSmoothedAmplitude(); //song.mix.level();
+    //float level = mv.getSmoothedAmplitude(); //song.mix.level();
     
 
-    //float level = song.mix.level();
+    float level = mv.ap.mix.level();
 
     mv.translate(mv.width/2, mv.height/2, 0);
     mv.rotateY(angle);

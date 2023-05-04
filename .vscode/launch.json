@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "AishaVisual",
+            "request": "launch",
+            "mainClass": "ie.tudublin.AishaVisual",
+            "projectName": "java"
+        },
+        {
+            "type": "java",
             "name": "MyVisual",
             "request": "launch",
             "mainClass": "ie.tudublin.MyVisual",
