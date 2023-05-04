@@ -45,7 +45,7 @@ public class SpinningSpheres
         float d = PApplet.dist(0, 0, 0, x, y, z);
 
         
-    
+        
         mv.fill(mv.random(255), mv.random(255), mv.random(255));
         
         mv.pushMatrix();

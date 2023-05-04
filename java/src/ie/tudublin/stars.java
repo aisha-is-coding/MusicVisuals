@@ -203,7 +203,7 @@ public class stars  {
             y = mv.random(mv.height);
             vx = mv.random(-1, 1);
             vy = 6; // set the falling speed to a constant value of 2
-            size = mv.random(5, 10);
+            size = mv.random(30, 80);
             color = mv.color(mv.random(255), mv.random(255), mv.random(255));
         }
 
@@ -228,16 +228,18 @@ public class stars  {
             //     e.printStackTrace();
             // }
     
-            arr = mv.getSmoothedBands();
+           // arr = mv.getSmoothedBands();
 
-             float amplitude = (int) MyVisual.map(x, 100, mv.width, 100, arr[8]);
+            //int index = (int) MyVisual.map(x, 100, mv.width, 100, arr[8]);
+            float amplitude = mv.ap.mix.level();
+             
             //int index = (int) MyVisual.map(x, 100, mv.width, 100, arr.length > 50 ? arr[50] : 0);
             //float amplitude = arr[index % 5];
 
-            size = amplitude * 40;
+            size = amplitude * 90;
             // limit the maximum size
-            if (size > 50) {
-                size = 50;
+            if (size > 90) {
+                size = 90;
             }
             mv.fill(color);
             mv.noStroke();
