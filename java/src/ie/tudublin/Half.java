@@ -56,8 +56,8 @@ mv.strokeWeight(2);
   mv.rotateZ(rotationZ);
   
   // Get the amplitude of the song
-  float amplitude = mv.getSmoothedAmplitude(); //song.mix.level();
-  float sizeChange = MyVisual.map(amplitude, 0, 1, 1, 2);
+  float amplitude = mv.ap.mix.level();
+  float sizeChange = MyVisual.map(amplitude, 0, 1,1, 2);
   
   colorTime++;
   if (colorTime % colorChangeRate == 0) {

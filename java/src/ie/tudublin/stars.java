@@ -232,6 +232,8 @@ public class stars  {
 
             //int index = (int) MyVisual.map(x, 100, mv.width, 100, arr[8]);
             float amplitude = mv.ap.mix.level();
+            
+
              
             //int index = (int) MyVisual.map(x, 100, mv.width, 100, arr.length > 50 ? arr[50] : 0);
             //float amplitude = arr[index % 5];

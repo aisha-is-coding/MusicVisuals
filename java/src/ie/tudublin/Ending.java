@@ -8,7 +8,7 @@ package ie.tudublin;
 import processing.core.PApplet;
 import processing.core.PConstants;
 
-public class MP3 
+public class Ending
 { 
     
     private MyVisual mv;
@@ -18,7 +18,7 @@ public class MP3
     float speed = 50;
 
 
-    public MP3(MyVisual mv)
+    public Ending(MyVisual mv)
     {
         this.mv = mv;
         //this.idea = new Idea(mv);

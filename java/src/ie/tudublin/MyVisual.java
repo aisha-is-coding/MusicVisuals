@@ -11,7 +11,7 @@ public class MyVisual extends Visual
     DiscoBall db;
     Half hj;
     SpinningSpheres ss;
-    MP3 mp3;
+    Ending end;
     int mode = 1;
 
     public Object song;
@@ -32,7 +32,7 @@ public class MyVisual extends Visual
         db = new DiscoBall(this);
         hj = new Half(this);
         ss = new SpinningSpheres(this);
-        mp3 = new MP3(this);
+        end = new Ending(this);
 
     }
 
@@ -200,7 +200,7 @@ public class MyVisual extends Visual
         //     e.printStackTrace();
         //  }
         //  calculateFrequencyBands();
-         mp3.render();
+        end.render();
 
     }
     

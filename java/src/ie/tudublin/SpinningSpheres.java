@@ -43,10 +43,9 @@ public class SpinningSpheres
         float z = mv.random(-100, 100);
         
         float d = PApplet.dist(0, 0, 0, x, y, z);
-
-        
-        
+ 
         mv.fill(mv.random(255), mv.random(255), mv.random(255));
+        //mv.fill(mv.random(255), (255), (255));
         
         mv.pushMatrix();
         mv.translate(x, y, z);
