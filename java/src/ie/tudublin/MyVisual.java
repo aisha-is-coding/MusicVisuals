@@ -99,7 +99,6 @@ public class MyVisual extends Visual
         
     }
 
-
     void part_one()
     {
         h_idea2.render();
@@ -120,6 +119,7 @@ public class MyVisual extends Visual
         mNote.render();
     }
 
+    
     void part_three()
     {
        
