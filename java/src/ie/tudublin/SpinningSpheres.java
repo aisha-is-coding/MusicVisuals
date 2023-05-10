@@ -39,18 +39,17 @@ public class SpinningSpheres
     for (int i = 0; i < 1000; i++)
     {
       float x = mv.random(-mv.width/2, mv.width/2);
-        float y = mv.random(-mv.height/2, mv.height/2);
-        float z = mv.random(-100, 100);
-        
-        float d = PApplet.dist(0, 0, 0, x, y, z);
- 
-        mv.fill(mv.random(255), mv.random(255), mv.random(255));
-        //mv.fill(mv.random(255), (255), (255));
-        
-        mv.pushMatrix();
-        mv.translate(x, y, z);
-        mv.sphere((float) (d * level * 0.1));
-        mv.popMatrix();
+      float y = mv.random(-mv.height/2, mv.height/2);
+      float z = mv.random(-100, 100);
+      
+      float d = PApplet.dist(0, 0, 0, x, y, z);
+
+      mv.fill(mv.random(255), 255, 255);
+      
+      mv.pushMatrix();
+      mv.translate(x, y, z);
+      mv.sphere((float) (d * level * 0.1));
+      mv.popMatrix();
     }
     angle += 0.01;
   }

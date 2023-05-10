@@ -55,40 +55,40 @@ public class MyVisual extends Visual
     {
         switch (mode) 
         {
-			case 1://first to play (grace)
+			case 1://first to play key 1 (opening screen)
            
                 part_one();
                 
                     break;
-            case 2://When you press key 1 (hadassah)
+            case 2://When you press key 2 (molly)
              
                 part_two();
                 
                 break;
 
-            case 3:// when you press key 2 (cece)
+            case 3:// when you press key 3 (cece)
         
                part_three();
 
                 break;
 
-            case 4://when you press key 3 (molly)
+            case 4://when you press key 4 (grace)
 
                 part_four();
 
                 break;
 
-            case 5://when you press key 4 (aisha)
+            case 5://when you press key 5 (hadassah)
 
                 part_five();
                 break;
             
-            case 6://when you press key 4 (aisha)
+            case 6://when you press key 6 (aisha)
 
                 part_six();
                 break;
 
-            case 7://when you press key 4 (aisha)
+            case 7://when you press key 7(ending screen)
 
                 part_seven();
                 break;
@@ -185,7 +185,7 @@ public class MyVisual extends Visual
          }
          calculateFrequencyBands();
          ss.render();
-
+        colorMode(HSB);
     }
 
     void part_seven()
